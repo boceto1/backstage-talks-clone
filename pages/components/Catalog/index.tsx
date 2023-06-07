@@ -1,14 +1,19 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import CatalogItem, { ICatalogItem } from '../CatalogItem';
+import useScrollSpy from '../../../hooks/useScrollSpy';
 
 interface ICatalog {
   items: ICatalogItem[];
 }
 
 const Catalog: React.FC<ICatalog> = ({ items }) => {
+  const wrapperRef = React.useRef(null);
+
+  const activeSection = useScrollSpy(wrapperRef);
+
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       {items.map(({ id, title, background, image }) => (
         <CatalogItem
           key={id}
