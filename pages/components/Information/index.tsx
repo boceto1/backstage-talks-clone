@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { styled } from 'styled-components';
 
 const Container = styled.div`
+  position: absolute;
   z-index: 2;
 `;
 

@@ -56,6 +56,7 @@ const Wrapper = styled.div<{ background?: string }>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  scroll-snap-align: start;
 `;
 
 const Title = styled.h1`
