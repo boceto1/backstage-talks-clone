@@ -1,11 +1,12 @@
-import CatalogItem from './components/CatalogItem';
+import Catalog from './components/Catalog';
 import Information from './components/Information';
+import mockData  from './utils/mockData.json';
 
 export default function Home() {
   return (
     <div>
-     <Information />
-     <CatalogItem />
+      <Information />
+      <Catalog items={mockData}/>
     </div>
-  )
+  );
 }

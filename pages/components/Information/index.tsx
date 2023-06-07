@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { styled } from 'styled-components';
 
 const Container = styled.div`
+  position: absolute;
   z-index: 2;
 `;
 
@@ -60,12 +61,14 @@ const Information: React.FC = () => {
         <p>Privacy Policy</p>
       </DescriptionWrapper>
       <CatalogMenu>
-        <ul>
-          <li>Issue # 1</li>
-          <li>Issue # 2</li>
-          <li>Issue # 3</li>
-          <li>Issue # 4</li>
-          <li>Issue # 5</li>
+      <ul>
+          <li><a href='#issue-7'>Issue # 7</a></li>
+          <li><a href='#issue-6'>Issue # 6</a></li>
+          <li><a href='#issue-5'>Issue # 5</a></li>
+          <li><a href='#issue-4'>Issue # 4</a></li>
+          <li><a href='#issue-3'>Issue # 3</a></li>
+          <li><a href='#issue-2'>Issue # 2</a></li>
+          <li><a href='#issue-1'>Issue # 1</a></li>
         </ul>
       </CatalogMenu>
     </Container>
