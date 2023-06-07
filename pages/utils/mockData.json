@@ -1,0 +1,44 @@
+[
+  {
+    "id": "issue-7",
+    "title": "Issue 7",
+    "background": "#EF5F8D",
+    "image": "/catalog/cover_issue_7.png"
+  },
+  {
+    "id": "issue-6",
+    "title": "Issue 6",
+    "background": "white",
+    "image": "/catalog/cover_issue_6.png"
+  },
+  {
+    "id": "issue-5",
+    "title": "Issue 5",
+    "background": "#00C1B5",
+    "image": "/catalog/cover_issue_5.png"
+  },
+  {
+    "id": "issue-4",
+    "title": "Issue 4",
+    "background": "#FF6519",
+    "image": "/catalog/cover_issue_4.png"
+  },
+  {
+    "id": "issue-3",
+    "title": "Issue 3",
+    "background": "#FFBE00",
+    "image": "/catalog/cover_issue_3.png"
+  },
+  {
+    "id": "issue-2",
+    "title": "Issue 2",
+    "background": "#1D3FBB",
+    "image": "/catalog/cover_issue_2.png"
+  },
+  {
+    "id": "issue-1",
+    "title": "Issue 1",
+    "background": "#E30311",
+    "image": "/catalog/cover_issue_1.png"
+  }
+]
