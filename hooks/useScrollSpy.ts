@@ -50,7 +50,7 @@ const useScrollSpy = (containerRef?: RefObject<HTMLDivElement>) => {
 // TODO: Move this to a HOC 
 const withClientSideCheck = (hook: any) => {
   if (!isClientSide) {
-    return () => 'nulls';
+    return () => null;
   }
   return hook;
 }
