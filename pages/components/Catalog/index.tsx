@@ -12,6 +12,8 @@ const Catalog: React.FC<ICatalog> = ({ items }) => {
 
   const activeSection = useScrollSpy(wrapperRef);
 
+  console.log(activeSection);
+
   return (
     <Wrapper ref={wrapperRef}>
       {items.map(({ id, title, background, image }) => (
@@ -27,13 +29,6 @@ const Catalog: React.FC<ICatalog> = ({ items }) => {
   );
 };
 
-const Wrapper = styled.div`
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  transition: all 700ms ease 0s;
-  transform: translate3d(0px, 0px, 0px);
-`;
+const Wrapper = styled.div``;
 
 export default Catalog;

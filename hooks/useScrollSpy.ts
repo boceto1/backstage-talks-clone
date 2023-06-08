@@ -19,7 +19,6 @@ const useScrollSpy = (containerRef?: RefObject<HTMLDivElement>) => {
     sections.forEach((section: HTMLDivElement) => {
       const top = section.offsetTop;
       const height = section.offsetHeight;
-      const a = 1;
 
       if (scrollPosition >= top && scrollPosition < top + height) {
         const sectionId = section.getAttribute('id');
