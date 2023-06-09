@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import CatalogItem, { ICatalogItem } from '../CatalogItem';
 import useScrollSpy from '../../../hooks/useScrollSpy';
-
+import { getClientURL } from '../../utils';
 interface ICatalog {
-  items: ICatalogItem[];
+  items: Omit<ICatalogItem, 'isActive'>[];
 }
 
 const Catalog: React.FC<ICatalog> = ({ items }) => {
   const wrapperRef = React.useRef(null);
+  const [sectionId, setSectionId] = useState(items[0].id);
 
-  const activeSection = useScrollSpy(wrapperRef);
+  const activeSectionId = useScrollSpy(wrapperRef);
+  const clientURL = getClientURL()?.split('#')[1];
 
-  console.log(activeSection);
+  useEffect(() => {
+    setSectionId(() => activeSectionId || clientURL || sectionId);
+  }, [activeSectionId, clientURL]);
+
+  const currentBackgroundColor = items.find(
+    (item) => item.id === sectionId
+  )?.background;
 
   return (
     <Wrapper ref={wrapperRef}>
-      {items.map(({ id, title, background, image }) => (
+      {items.map(({ id, title, image }) => (
         <CatalogItem
           key={id}
           id={id}
           title={title}
-          background={background}
+          background={currentBackgroundColor}
           image={image}
         />
       ))}
