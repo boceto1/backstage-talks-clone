@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import Image from 'next/image';
 import { useCallback } from 'react';
+import { calculateContrastColor } from 'utils';
 
 export interface ICatalogItem {
   id: string;
@@ -31,9 +32,9 @@ const CatalogItem: React.FC<ICatalogItem> = ({
     <Wrapper id={id} background={background}>
       <Image src={image} alt={`Cover of ${title}`} width={420} height={531} />
       <Title>{title}</Title>
-      <PreorderCTA onClick={onHandlePreorder}>PRE-ORDER HERE</PreorderCTA>
+      <PreorderCTA onClick={onHandlePreorder} background={background}>PRE-ORDER HERE</PreorderCTA>
       <SelectStoresText>
-        or in <CTALink onClick={onSelectedOnStore}>selected stores</CTALink>
+        or in <CTALink onClick={onSelectedOnStore} background={background}>selected stores</CTALink>
       </SelectStoresText>
     </Wrapper>
   );
@@ -42,7 +43,7 @@ const CatalogItem: React.FC<ICatalogItem> = ({
 export default CatalogItem;
 
 const Wrapper = styled.div<{ background?: string }>`
-  width: 100vw;
+  width: 98.9vw;
   height: 100vh;
   background: ${({ background }) => background || 'white'};
   display: flex;
@@ -50,15 +51,20 @@ const Wrapper = styled.div<{ background?: string }>`
   align-items: center;
   flex-direction: column;
   scroll-snap-align: start;
-  transition: background-color 500ms ease-out 100ms;
+  transition: background-color 500ms ease-in;
 `;
 
 const Title = styled.h1`
+  color: #251d20;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 25px;
   margin-bottom: 18px;
 `;
 
-const CTALink = styled.span`
-  color: white;
+const CTALink = styled.span<{background: string}>`
+  color: ${({ background }) =>calculateContrastColor(background)};
+  transition: color 500ms easy-out 100ms;
 `;
 
 const PreorderCTA = styled(CTALink)`
