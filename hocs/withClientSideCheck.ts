@@ -1,4 +1,4 @@
-import { isClientSide } from "../utils";
+import { isClientSide } from "utils";
 
 type NullFunction = () => null;
 

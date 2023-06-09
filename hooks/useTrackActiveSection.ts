@@ -1,5 +1,5 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
-import { withClientSideCheck } from "../hocs/withClientSideCheck";
+import { withClientSideCheck } from "hocs/withClientSideCheck";
 
 type IUseTrackActiveSection =
   (containerRef?: RefObject<HTMLDivElement>) => string;
