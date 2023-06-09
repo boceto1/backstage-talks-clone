@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import CatalogItem, { ICatalogItem } from '../CatalogItem';
-import useTrackActiveSection from '../../../hooks/useTrackActiveSection';
+import useTrackActiveSection from '../../hooks/useTrackActiveSection';
 import { getClientURL } from '../../utils';
+
 interface ICatalog {
   items: Omit<ICatalogItem, 'isActive'>[];
 }
