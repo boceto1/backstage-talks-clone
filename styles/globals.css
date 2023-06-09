@@ -4,6 +4,12 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+  /* Properties implemented to achieve scroll snap behavior */
+  scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+
 }
 
 a {

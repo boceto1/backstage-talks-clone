@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import CatalogItem, { ICatalogItem } from '../CatalogItem';
-
+import useScrollSpy from '../../../hooks/useScrollSpy';
+import { getClientURL } from '../../utils';
 interface ICatalog {
-  items: ICatalogItem[];
+  items: Omit<ICatalogItem, 'isActive'>[];
 }
 
 const Catalog: React.FC<ICatalog> = ({ items }) => {
+  const wrapperRef = React.useRef(null);
+  const [sectionId, setSectionId] = useState(items[0].id);
+
+  const activeSectionId = useScrollSpy(wrapperRef);
+  const clientURL = getClientURL()?.split('#')[1];
+
+  useEffect(() => {
+    setSectionId(() => activeSectionId || clientURL || sectionId);
+  }, [activeSectionId, clientURL]);
+
+  const currentBackgroundColor = items.find(
+    (item) => item.id === sectionId
+  )?.background;
+
   return (
-    <Wrapper>
-      {items.map(({ id, title, background, image }) => (
+    <Wrapper ref={wrapperRef}>
+      {items.map(({ id, title, image }) => (
         <CatalogItem
           key={id}
           id={id}
           title={title}
-          background={background}
+          background={currentBackgroundColor}
           image={image}
         />
       ))}
@@ -22,13 +37,6 @@ const Catalog: React.FC<ICatalog> = ({ items }) => {
   );
 };
 
-const Wrapper = styled.div`
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  transition: all 700ms ease 0s;
-  transform: translate3d(0px, 0px, 0px);
-`;
+const Wrapper = styled.div``;
 
 export default Catalog;
