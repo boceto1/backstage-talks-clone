@@ -1,8 +1,10 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
-import { isClientSide } from "../pages/utils";
+import { withClientSideCheck } from "hocs/withClientSideCheck";
 
-// TODO: Rename this custom hook
-const useScrollSpy = (containerRef?: RefObject<HTMLDivElement>) => {
+type IUseTrackActiveSection =
+  (containerRef?: RefObject<HTMLDivElement>) => string;
+
+const useTrackActiveSection: IUseTrackActiveSection = (containerRef) => {
   const [sections, setSections] = useState<NodeListOf<ChildNode> | []>([]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -46,12 +48,4 @@ const useScrollSpy = (containerRef?: RefObject<HTMLDivElement>) => {
   return activeSection;
 }
 
-// TODO: Move this to a HOC 
-const withClientSideCheck = (hook: any) => {
-  if (!isClientSide) {
-    return () => null;
-  }
-  return hook;
-}
-
-export default withClientSideCheck(useScrollSpy);
+export default withClientSideCheck(useTrackActiveSection);

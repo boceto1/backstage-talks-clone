@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
+import useTrackActiveSection from 'hooks/useTrackActiveSection';
+import { getClientURL } from 'utils';
 import CatalogItem, { ICatalogItem } from '../CatalogItem';
-import useScrollSpy from '../../../hooks/useScrollSpy';
-import { getClientURL } from '../../utils';
+
 interface ICatalog {
   items: Omit<ICatalogItem, 'isActive'>[];
 }
@@ -11,7 +12,7 @@ const Catalog: React.FC<ICatalog> = ({ items }) => {
   const wrapperRef = React.useRef(null);
   const [sectionId, setSectionId] = useState(items[0].id);
 
-  const activeSectionId = useScrollSpy(wrapperRef);
+  const activeSectionId = useTrackActiveSection(wrapperRef);
   const clientURL = getClientURL()?.split('#')[1];
 
   useEffect(() => {
