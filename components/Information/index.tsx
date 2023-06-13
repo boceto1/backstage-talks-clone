@@ -37,7 +37,7 @@ const Information: React.FC<IInformation> = ({ items: issues }) => {
       <CatalogMenu>
         <MenuContainer>
           {issues.map((issue) => (
-            <MenuItem>
+            <MenuItem key={issue.id}>
               <a href={`#${issue.id}`}>{issue.title}</a>
             </MenuItem>
           ))}
