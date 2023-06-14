@@ -14,7 +14,7 @@ const Information: React.FC<IInformation> = ({ items: issues }) => {
     <Container>
       <Logo>
         <Image
-          src="/logo.png"
+          src="./logo.png"
           alt="Backstage Tals Logo"
           width={260}
           height={29}
