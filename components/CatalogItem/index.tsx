@@ -43,7 +43,7 @@ const CatalogItem: React.FC<ICatalogItem> = ({
 export default CatalogItem;
 
 const Wrapper = styled.div<{ background?: string }>`
-  width: 98.9vw;
+  width: 100vw;
   height: 100vh;
   background: ${({ background }) => background || 'white'};
   display: flex;
